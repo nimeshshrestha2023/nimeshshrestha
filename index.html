@@ -3,35 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nimesh Shrestha</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .jumbotron {
-            background-color: #007bff;
-            color: #fff;
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .container {
-            margin-top: 30px;
-        }
-
-        h2 {
-            color: #007bff;
-        }
-    </style>
+    <title>Nimesh Shrestha - Personal Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Navigation Bar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Nimesh Shrestha</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,14 +17,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#about">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Blogs">Blogs</a>
+            </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#portfolio">Portfolio</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
@@ -55,44 +35,144 @@
         </div>
     </nav>
 
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-        <h1 class="display-4">Welcome to my website!</h1>
-        <p class="lead">I am Nimesh Shrestha, a passionate web developer.</p>
+    <!-- Home Section -->
+    <section id="home" class="bg-light">
+        <div class="container text-center">
+            <h1>Welcome to My Personal Website📌</h1>
+            <p>Beginner-Newbie | Student | Passionate about Coding</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>About Me</h2>
+                    <p>Am a junior web developer having only few coding skill including some programming languages like C, J.S , Html, PhP, Jquery, bootstrap ! As being newbie programmer, I want to enter into the technology era in order to perform as a passionate programmer/developer.With a passion for creating visually stunning and user-friendly websites, We brings a unique blend of creativity and technical expertise to every project. Armed with a strong foundation in HTML, CSS, JavaScript, Bootstrap, and jQuery, We have the skills to develop robust and responsive web applications. Alongside web development, We possess a keen eye for design, utilizing tools like Photoshop, Illustrator, and Sketch to craft captivating visuals.</p>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Add an image of yourself here -->
+                    <img src="profile.jpg" alt="Profile Image" class="img-fluid rounded-circle">
+                </div>
+            </div>
+        </div>
+    </section><br>
+    .....
+    <!-- Photo Gallery Section -->
+<section id=" Basic Web-designing Software">
+    <div class="container">
+        <h2 class="text-center">Basic Web-designing Software</h2><br>
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="photo1.jpg" class="img-fluid mb-4" alt="Photo 1">
+                <br>
+                &emsp; &emsp; &emsp;  <input type="button" value="Read more" onclick="html()">
+            </div>
+            <div class="col-lg-4">
+                <img src="photo2.jpg" class="img-fluid mb-4" alt="Photo 2">
+                <br>
+               &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <input type="button" value="Read more" onclick="css()">
+            </div>
+            <div class="col-lg-4">
+            <img src="photo3.jpg" class="img-fluid mb-4" alt="Photo 3">
+            <br><br>
+            &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<input type="button" value="Read more" onclick="javascript()">
+            </div>
+            <!-- Add more photo columns as needed -->
+        </div>
     </div>
-
-    <!-- Main Content -->
-    <div class="container" id="about">
-        <h2>About Me</h2>
-        <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> Am a junior web developer having only few coding skill including some programming languages like C, J.S , Html, PhP, Jquery, bootstrap ! As being newbie programmer, I want to enter into the technology era in order to perform as a passionate programmer/developer.</p>
-
-    <div class="container" id="skills">
-        <h2>Skills</h2>
-        <p>Here are some of my skills:</p>
-        <ul>
-            <li>HTML : 75%</li>
-            <li>CSS : 40%</li>
-            <li>JavaScript : 45%</li>
-            <li>Bootstrap : 10%</li>
-            <li>jQuery : 5%</li>
-        </ul>
+</section>
+   <!-- Blogs detail -->
+   <section id="blogs">
+    <div class="container">
+        <h2 class="text-center"> NEB important Questions</h2><br>
+        <b style="text-size-adjust: 30px;">Solutions : </b> <a href="file:///C:/Users/nimes/Downloads/NEB%20class%2012%20Computer%20All%20important%20C%20programming%20with%20solution.pdf" style="font-size: 20px;"> Find here </a>
+        <a href="file:///C:/Users/nimes/Downloads/NEB%20class%2012%20Computer%20All%20important%20C%20programming%20with%20solution.pdf" download>
+            <button class="highlight">Download</button>
+            </a>
+            
     </div>
+   </section>
 
-    <div class="container" id="portfolio">
-        <h2>Portfolio</h2>
-        <!-- Add your portfolio items here -->
+    <!-- Skills Section -->
+<section id="skills">
+    <div class="container">
+        <h2 class="text-center">Skills</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li> Basic HTML, CSS, JavaScript</li>
+                    <li> Basic Bootstrap, jQuery</li>
+                    
+                    <!-- Add more technical skills as needed -->
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Problem Solving</li>
+                    <li>Communication</li>
+                    <li>Team Collaboration</li>
+                    <!-- Add more soft skills as needed -->
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <div class="container" id="contact">
+</section>
+ <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            
+            <!-- Add a contact form or your contact information here -->
+            <!-- Contact Section -->
+<section id="contact">
+    <div class="container">
         <h2>Contact Me</h2>
-        <p>Feel free to reach out to me:</p>
-        <p>Email: nimeshshrestha.com.np</p>
+        <div class="row">
+            <div class="col-lg-6">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <!-- Add additional contact information or a map if needed -->
+                <p><b>Feel free to reach out to me via the contact form. I'll get back to you as soon as possible!</b></p>
+            </div>
+        </div>
     </div>
+</section>
+        </div>
+    </section>
 
-    <!-- Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add your custom scripts here -->
+    <script src="script1.js"></script>
+    <script>
+        function html(){
+            window.location.href = "https://en.wikipedia.org/wiki/HTML"; 
+        }
+        function css(){
+            window.location.href = "https://en.wikipedia.org/wiki/CSS";
+        }
+        function javascript(){
+            window.location.href ="https://en.wikipedia.org/wiki/CSS";
+        }
+    </script>
 </body>
 </html>
