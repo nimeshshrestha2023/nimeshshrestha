@@ -6,6 +6,38 @@
     <title>Nimesh Shrestha - Personal Website</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="script1.js">
+    <link rel="stylesheet" href="server.js">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        const socket = io('http://localhost:3000'); // Replace with your WebSocket server address
+    
+        // Handle incoming messages
+        socket.on('chat message', function (msg) {
+            // Display the message in your chat UI
+            const chatMessages = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.innerText = msg;
+            chatMessages.appendChild(messageElement);
+        });
+    
+        // Function to send a message
+        function sendMessage(message) {
+            // Emit the message to the server
+            socket.emit('chat message', message);
+    
+            // Display the sent message in your chat UI
+            const chatMessages = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.innerText = `You: ${message}`;
+            chatMessages.appendChild(messageElement);
+    
+            // Clear the input field
+            document.getElementById('messageInput').value = '';
+        }
+    </script>
+    
+
 </head>
 <body>
     <!-- Navbar -->
@@ -19,6 +51,11 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#home">Home</a>
                 </li>
+                <!-- Inside the <ul> tag in the navigation menu of index.html -->
+<li class="nav-item">
+    <a class="nav-link" href="index2.html">C PROGRAMMING</a>
+</li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#about">About</a>
                 </li>
@@ -90,7 +127,8 @@
         <b style="text-size-adjust: 30px;">Solutions : </b> <a href="https://jbstechinfo.com/?p=841" style="font-size: 20px;"> Find here </a>
         <a href="file:///C:/Users/nimes/Downloads/NEB%20class%2012%20Computer%20All%20important%20C%20programming%20with%20solution.pdf" download>
             <button class="highlight">Download</button>
-            </a>
+            </a><br><br>
+            <i> C programming Problems :</i> <a href="index2.html"> Find here</a>
             
     </div>
    </section>
@@ -157,6 +195,7 @@
 </section>
         </div>
     </section>
+   
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
