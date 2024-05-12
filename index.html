@@ -5,75 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nimesh Shrestha - Personal Website</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #28a745;
-            color: #fff;
+          font-family: Arial, sans-serif;
         }
         .container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+          max-width: 400px;
+          margin: 50px auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #f9f9f9;
         }
         label {
-            font-weight: bold;
+          font-weight: bold;
         }
         input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            box-sizing: border-box;
+          width: 100%;
+          padding: 8px;
+          margin: 5px 0;
+          box-sizing: border-box;
         }
         button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+          width: 100%;
+          padding: 10px;
+          margin-top: 10px;
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
         }
-        /* Navbar */
-        .navbar {
-            background-color: #343a40; 
-        }
-        .navbar-brand,
-        .navbar-nav .nav-link {
-            color: #fff !important; 
-        }
-        .navbar-toggler-icon {
-            background-color: #fff; 
-        }
-        /* Custom styles */
-        #home {
-            background-color: transparent;
-            color: #fff;
-            animation: neonGlow 2s ease-in-out infinite alternate;
-        }
-        @keyframes neonGlow {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 70px #ffd700, 0 0 80px #ffd700, 0 0 100px #ffd700, 0 0 150px #ffd700;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ffd700, 0 0 50px #ffd700, 0 0 100px #ffd700, 0 0 150px #ffd700, 0 0 200px #ffd700, 0 0 250px #ffd700;
-            }
+      </style>
+    <style>
+        /* Green body background */
+        body {
+            background-color: #28a745; /* Green background */
+            color: #fff; /* White text color */
         }
         /* Footer styles */
+footer {
+    background-color: #343a40; /* Dark footer */
+    color: #fff; /* White text color */
+    padding: 20px 0;
+    text-align: center;
+    /* Remove fixed positioning */
+    /* position: fixed;
+    bottom: 0;
+    width: 100%; */
+    /* Add relative positioning */
+    position: relative;
+    clear: both; /* Clear floats */
+}
+
+        .navbar {
+            background-color: #343a40; /* Dark navbar */
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff !important; /* White text color for navbar links */
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff; /* White color for navbar toggler */
+        }
+
+        /* Footer styles */
         footer {
-            background-color: #343a40;
-            color: #fff;
+            background-color: #343a40; /* Dark footer */
+            color: #fff; /* White text color */
             padding: 20px 0;
             text-align: center;
-            position: relative;
-            clear: both; 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
+        
+    </style>
+    <style>
+        /* Add animation only to neon-avatar */
+.neon-avatar {
+    animation: neonGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 70px #ffd700, 0 0 80px #ffd700, 0 0 100px #ffd700, 0 0 150px #ffd700;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ffd700, 0 0 50px #ffd700, 0 0 100px #ffd700, 0 0 150px #ffd700, 0 0 200px #ffd700, 0 0 250px #ffd700;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -102,64 +131,67 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home" >
-        <div>
+    <section id="home">
+        <div class="container-fluid text-center">
             <h1>Welcome to my Personal Website💡</h1>
             <p>Get ready for an electrifying experience!</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="animated slideInLeft">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2>About Me</h2>
-                    <p>I'm a junior web developer with skills in C, JavaScript, HTML, PHP, jQuery, and Bootstrap. I'm passionate about programming and eager to contribute to the technology industry. With expertise in HTML, CSS, JavaScript, Bootstrap, and jQuery, I develop robust and responsive web applications. I also have a keen eye for design, using tools like Photoshop, Illustrator, and Sketch to create captivating visuals.</p>
-                </div>
-                <div class="col-lg-6">
-                    <img src="neon_avatar.jpg" alt="Neon Avatar" class="img-fluid rounded-circle animate__animated animate__fadeInRight" style="max-width: 200px; height: auto">
-                </div>
+  <!-- About Section -->
+<section id="about">
+    <div class="containerabt">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>About Me</h2>
+                <p>Am a junior web developer having only few coding skill including some programming languages like C, J.S , Html, PhP, Jquery, bootstrap ! As being newbie programmer, I want to enter into the technology era in order to perform as a passionate programmer/developer.With a passion for creating visually stunning and user-friendly websites, We brings a unique blend of creativity and technical expertise to every project. Armed with a strong foundation in HTML, CSS, JavaScript, Bootstrap, and jQuery, We have the skills to develop robust and responsive web applications. Alongside web development, We possess a keen eye for design, utilizing tools like Photoshop, Illustrator, and Sketch to craft captivating visuals.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="neon_avatar.jpg" alt="Neon Avatar" class="neon_avatar img-fluid rounded-circle animate__animated animate__fadeInRight" style="max-width: 200px; height: auto">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Essential Applications Section -->
+    <hr style="border-left: #28a745;">
+    <!-- Applications-->
     <section>
-        <div class="container">
-            <h4 class="text-center"><u>Essential applications for website design!</u></h4>
-            <div>
-                <strong>1. VS Code (Text-Editor)</strong>
-                <img src="vscode.jpg" alt="VS Code Logo" class="img-fluid rounded-circle" style="max-width: 50px; height: auto">
-                <a href="https://code.visualstudio.com/" style="color: aliceblue;">Download now</a>
-            </div>
-            <div>
-                <strong>2. Adobe Photoshop</strong>
-                <img src="adobe.jpg" alt="Adobe Photoshop Logo" class="img-fluid rounded-circle" style="max-width: 50px; height: auto">
-                <a href="https://www.adobe.com/products/photoshop.html" style="color: aliceblue;">Download now</a>
-            </div>
-            <div>
-                <strong>3. Figma</strong>
-                <img src="figma.jpg" alt="Figma Logo" class="img-fluid rounded-circle" style="max-width: 50px; height: auto">
-                <a href="https://www.figma.com/" style="color: aliceblue;">Download now</a>
-            </div>
-            <div>
-                <strong>4. Adobe Illustrator</strong>
-                <img src="illustrator.jpg" alt="Adobe Illustrator Logo" class="img-fluid rounded-circle" style="max-width: 50px; height: auto">
-                <a href="https://www.adobe.com/products/illustrator.html" style="color: aliceblue;">Download now</a>
-            </div>
-            <div>
-                <strong>5. GitHub</strong>
-                <img src="github.jpg" alt="GitHub Logo" class="img-fluid rounded-circle" style="max-width: 50px; height: auto">
-                <a href="https://github.com/" style="color: aliceblue;">Download now</a>
-            </div>
+        <div class="container1">
+            <h4 class="text-center"><u>Essential applications for website design !</u></h4>
+            <strong>1. VS Code(Text-Editor)</strong>
+            <img src="vscode.jpg" alt="Vslogo" class="img-fluid rounded-circle" style="text-align: right; max-width:50px; height:auto">&emsp;&emsp;
+            <a href="https://code.visualstudio.com/" style="color: aliceblue;"> Download now</a>
         </div>
     </section>
-
-    <!-- Multi-Subject GPA Calculator -->
-    <section>
+    <!--Application 2-->
+    <div class="container2">
+        <strong>2. Adobe Photoshop</strong>
+        <img src="adobe.jpg" alt="abobeLogo" class="img-fluid rounded-circle" style="text-align:right; max-width:50px; height:auto">&emsp;
+        <a href="https://www.adobe.com/products/photoshop.html"style="color:aliceblue;"> Download now</a>
+    </div>
+    <!--Application 3-->
+    <div class="container3">
+        <strong>3. Figma</strong>
+        <img src="figma.jpg" alt="figmaLogo" class="img-fluid rounded-circle" style="text-align:center; max-width:50px; height:auto">&emsp;
+        <a href="https://www.figma.com/" style="color: aliceblue;"> Download now</a>
+    </div>
+    <!--Application 4-->
+    <div class="container4">
+        <strong>4. Adobe Illustrator</strong>
+        <img src="illustrator.jpg" alt="illustLogo" class="img-fluid rounded-circle" style="text-align:center; max-width:50px; height:auto">&emsp;
+        <a href="https://www.adobe.com/products/illustrator.html" style="color: aliceblue;">Download now</a>
+    </div>
+    <!--Application 5-->
+    <div class="container5">
+        <strong>5. Github</strong>
+        <img src="github.jpg" alt="gitLogo" class="img-fluid rounded-circle" style="text-align: right; max-width:50px ;height:auto">&emsp;
+        <a href="https://github.com/" style="color: aliceblue;"> Download now</a>
+    </div>
+    <hr>
+     <!--NEB 12 GPA checker-->
+     <section>
         <div class="container">
-            <h2>Multi-Subject GPA Calculator</h2>
+            <h2 style="color: #343a40;">Multi-Subject GPA Calculator</h2>
             <label for="english">English:</label>
             <input type="number" id="english" placeholder="Enter marks for English">
             <label for="nepali">Nepali:</label>
@@ -179,11 +211,11 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="container">
+        <div class="containercont">
             <h2 class="text-center">Connect with Me</h2>
             <div class="row">
                 <div class="col-lg-6">
-                    <form id="contactForm" onsubmit="return validateForm()">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" class="form-control" id="name" name="name" required>
@@ -196,114 +228,61 @@
                             <label for="message">Message:</label>
                             <textarea class="form-control" id="message" name="message" rows="2" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" onclick="nimesh()">Submit</button>
                     </form>
-                    <p id="error-message" style="color: red;"></p>
-                    <p id="existing-message"></p>
+                </div>
+                <div class="col-lg-6">
+                   <!-- Add content for the second column if needed -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Nimesh Shrestha - All rights reserved.</p>
-        </div>
-    </footer>
-
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        function validateForm() {
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var message = document.getElementById("message").value;
-
-            var errorMessage = "";
-
-            if (name.trim() == "") {
-                errorMessage += "Name is required.<br>";
-            }
-
-            if (email.trim() == "") {
-                errorMessage += "Email is required.<br>";
-            } else if (!isValidEmail(email)) {
-                errorMessage += "Invalid email format.<br>";
-            }
-
-            if (message.trim() == "") {
-                errorMessage += "Message is required.<br>";
-            }
-
-            if (errorMessage !== "") {
-                document.getElementById("error-message").innerHTML = errorMessage;
-                return false;
-            }
-
-            // Form submission logic goes here (e.g., AJAX request)
-
-            return true;
-        }
-
-        function isValidEmail(email) {
-            // Basic email validation regex
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        var existingMessage = "Thank you for contacting us! We will get back to you soon.";
-
-        // Function to display existing message
-        function displayExistingMessage() {
-            document.getElementById("existing-message").innerHTML = existingMessage;
-        }
-
-        // Call the function to display the existing message when the page loads
-        window.onload = displayExistingMessage;
-
-        function calculateGPA() {
-            const englishMarks = parseFloat(document.getElementById('english').value);
-            const nepaliMarks = parseFloat(document.getElementById('nepali').value);
-            const socialMathMarks = parseFloat(document.getElementById('socialMath').value);
-            const accPhysicsMarks = parseFloat(document.getElementById('accPhysics').value);
-            const ecoChemMarks = parseFloat(document.getElementById('ecoChem').value);
-            const compBioMarks = parseFloat(document.getElementById('compBio').value);
-
-            const totalSubjects = 6; // Total number of subjects
-
-            const totalMarks = englishMarks + nepaliMarks + socialMathMarks + accPhysicsMarks + ecoChemMarks + compBioMarks;
-
-            const averageMarks = totalMarks / totalSubjects;
-
-            let gpa = '';
-            let color = '';
-
-            if (averageMarks >= 90) {
-                gpa = 'A+';
-            } else if (averageMarks >= 80 && averageMarks < 90) {
-                gpa = 'A';
-            } else if (averageMarks >= 70 && averageMarks < 80) {
-                gpa = 'B+';
-            } else if (averageMarks >= 60 && averageMarks < 70) {
-                gpa = 'B';
-            } else if (averageMarks >= 50 && averageMarks < 60) {
-                gpa = 'C+';
-            } else if (averageMarks >= 40 && averageMarks < 50) {
-                gpa = 'C';
-            } else if (averageMarks >= 35 && averageMarks < 40) {
-                gpa = 'D';
-            } else {
-                gpa = 'NG';
-            }
-
-            // Set color to black for all cases
-            color = 'black';
-
-            document.getElementById('result').innerHTML = `<span style="color: ${color};">You scored ${gpa}</span>`;
-        }
-    </script>
 </body>
+<script>
+    function calculateGPA() {
+      const englishMarks = parseFloat(document.getElementById('english').value);
+      const nepaliMarks = parseFloat(document.getElementById('nepali').value);
+      const socialMathMarks = parseFloat(document.getElementById('socialMath').value);
+      const accPhysicsMarks = parseFloat(document.getElementById('accPhysics').value);
+      const ecoChemMarks = parseFloat(document.getElementById('ecoChem').value);
+      const compBioMarks = parseFloat(document.getElementById('compBio').value);
+
+      const totalSubjects = 6; // Total number of subjects
+
+      const totalMarks = englishMarks + nepaliMarks + socialMathMarks + accPhysicsMarks + ecoChemMarks + compBioMarks;
+
+      const averageMarks = totalMarks / totalSubjects;
+
+      let gpa = '';
+      let color = '';
+
+      if (averageMarks >= 90) {
+        gpa = 'A+';
+      } else if (averageMarks >= 80 && averageMarks < 90) {
+        gpa = 'A';
+      } else if (averageMarks >= 70 && averageMarks < 80) {
+        gpa = 'B+';
+      } else if (averageMarks >= 60 && averageMarks < 70) {
+        gpa = 'B';
+      } else if (averageMarks >= 50 && averageMarks < 60) {
+        gpa = 'C+';
+      } else if (averageMarks >= 40 && averageMarks < 50) {
+        gpa = 'C';
+      } else if (averageMarks >= 35 && averageMarks < 40) {
+        gpa = 'D';
+      } else {
+        gpa = 'NG';
+      }
+
+      // Set color to black for all cases
+      color = 'black';
+
+      document.getElementById('result').innerHTML = `<span style="color: ${color};">You scored ${gpa}</span>`;
+    }
+</script>
 </html>
