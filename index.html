@@ -6,38 +6,105 @@
     <title>Nimesh Shrestha - Personal Website</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="script1.js">
-    <link rel="stylesheet" href="server.js">
-    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
-    <script>
-        const socket = io('http://localhost:3000'); // Replace with your WebSocket server address
-    
-        // Handle incoming messages
-        socket.on('chat message', function (msg) {
-            // Display the message in your chat UI
-            const chatMessages = document.getElementById('chat-messages');
-            const messageElement = document.createElement('div');
-            messageElement.innerText = msg;
-            chatMessages.appendChild(messageElement);
-        });
-    
-        // Function to send a message
-        function sendMessage(message) {
-            // Emit the message to the server
-            socket.emit('chat message', message);
-    
-            // Display the sent message in your chat UI
-            const chatMessages = document.getElementById('chat-messages');
-            const messageElement = document.createElement('div');
-            messageElement.innerText = `You: ${message}`;
-            chatMessages.appendChild(messageElement);
-    
-            // Clear the input field
-            document.getElementById('messageInput').value = '';
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
         }
-    </script>
-    
+        .container {
+          max-width: 400px;
+          margin: 50px auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+        }
+        label {
+          font-weight: bold;
+        }
+        input[type="number"] {
+          width: 100%;
+          padding: 8px;
+          margin: 5px 0;
+          box-sizing: border-box;
+        }
+        button {
+          width: 100%;
+          padding: 10px;
+          margin-top: 10px;
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      </style>
+    <style>
+        /* Green body background */
+        body {
+            background-color: #28a745; /* Green background */
+            color: #fff; /* White text color */
+        }
+        /* Footer styles */
+footer {
+    background-color: #343a40; /* Dark footer */
+    color: #fff; /* White text color */
+    padding: 20px 0;
+    text-align: center;
+    /* Remove fixed positioning */
+    /* position: fixed;
+    bottom: 0;
+    width: 100%; */
+    /* Add relative positioning */
+    position: relative;
+    clear: both; /* Clear floats */
+}
 
+
+        .navbar {
+            background-color: #343a40; /* Dark navbar */
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff !important; /* White text color for navbar links */
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff; /* White color for navbar toggler */
+        }
+
+        /* Custom styles */
+        /* Add more custom styles for different sections as needed */
+        /* For example, for the Home section */
+        #home {
+            background-color: transparent; /* Transparent background */
+            color: #fff; /* White text color */
+            animation: neonGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 70px #ffd700, 0 0 80px #ffd700, 0 0 100px #ffd700, 0 0 150px #ffd700;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ffd700, 0 0 50px #ffd700, 0 0 100px #ffd700, 0 0 150px #ffd700, 0 0 200px #ffd700, 0 0 250px #ffd700;
+            }
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #343a40; /* Dark footer */
+            color: #fff; /* White text color */
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -51,170 +118,243 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#home">Home</a>
                 </li>
-                <!-- Inside the <ul> tag in the navigation menu of index.html -->
-<li class="nav-item">
-    <a class="nav-link" href="index2.html">C PROGRAMMING</a>
-</li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="#about">About</a>
                 </li>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#Blogs">Blogs</a>
-            </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#portfolio">Portfolio</a>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index1.html">C PROGRAMMING</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="bg-light">
-        <div class="container text-center">
-            <h1>Welcome to My Personal Website📌</h1>
-            <p>Beginner-Newbie | Student | Passionate about Coding</p>
+    <section id="home" class="animated fadeIn">
+        <div class="container-fluid text-center">
+            <h1 class="animate__animated animate__fadeInDown">Welcome to my Personal Website💡</h1>
+            <p>Get ready for an electrifying experience!</p>
         </div>
     </section>
+    <!--
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown">Welcome to My Personal Website📌</h1>
+        <p class="lead animate__animated animate__fadeInUp">Beginner-Newbie | Student | Passionate about Coding</p>
+    </div>
+-->
 
     <!-- About Section -->
-    <section id="about">
-        <div class="container">
+    <section id="about" class="animated slideInLeft">
+        <div class="containerabt">
             <div class="row">
                 <div class="col-lg-6">
                     <h2>About Me</h2>
                     <p>Am a junior web developer having only few coding skill including some programming languages like C, J.S , Html, PhP, Jquery, bootstrap ! As being newbie programmer, I want to enter into the technology era in order to perform as a passionate programmer/developer.With a passion for creating visually stunning and user-friendly websites, We brings a unique blend of creativity and technical expertise to every project. Armed with a strong foundation in HTML, CSS, JavaScript, Bootstrap, and jQuery, We have the skills to develop robust and responsive web applications. Alongside web development, We possess a keen eye for design, utilizing tools like Photoshop, Illustrator, and Sketch to craft captivating visuals.</p>
                 </div>
                 <div class="col-lg-6">
-                    <!-- Add an image of yourself here -->
-                    <img src="profile.jpg" alt="Profile Image" class="img-fluid rounded-circle">
+                    <img src="neon_avatar.jpg" alt="Neon Avatar" class="img-fluid rounded-circle animate__animated animate__fadeInRight" style="max-width: 200px; height: auto">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <hr style="border-left: #28a745;">
+    <!-- Applications-->
+    <section>
+        <div class="container1">
+            <h4 class="text-center" > <u>Essential applications for website design !</u></h4>
+            <strong> 1. VS Code(Text-Editor)</strong>
+            <img src="vscode.jpg" alt="Vslogo" class="img-fluid rounded-circle" style="text-align: right; max-width:50px; height:auto">&emsp;&emsp;
+            <a href="https://code.visualstudio.com/" style="color: aliceblue;"> Download now</a>
+        </div>
+    </section>
+    <!--Application 2-->
+    <div class="container2">
+        <strong> 2. Adobe Photoshop</strong>
+        <img src="adobe.jpg" alt="abobeLogo" class="img-fluid rounded-circle" style="text-align:right; max-width:50px; height:auto">&emsp;
+        <a href="https://www.adobe.com/products/photoshop.html"style="color:aliceblue;"> Download now</a>
+    </div>
+</section>
+<!--Application 3-->
+<div class="container3">
+    <strong> 3 .Figma</strong>
+    <img src="figma.jpg" alt="figmaLogo" class="img-fluid rounded-circle" style="text-align:center; max-width:50px; height:auto">&emsp;
+    <a href="https://www.figma.com/" style="color: aliceblue;"> Download now</a>
+</div>
+<!--Application 4-->
+<section>
+    
+   
+    <div class="container4">
+        <strong> 4. Adobe Illustrator</strong>
+        <img src="illustrator.jpg" alt="illustLogo" class="img-fluid rounded-circle" style="text-align:center; max-width:50px; height:auto">&emsp;
+        <a href="https://www.adobe.com/products/illustrator.html" style="color: aliceblue;">Download now</a>
+
+    </div>
+   
+</section>
+<!--Application 5-->
+<section>
+    <div class="container5">
+        <strong> 5. Github</strong>
+        <img src="github.jpg" alt="gitLogo" class="img-fluid rounded-circle" style="text-align: right; max-width:50px ;height:auto">&emsp;
+        <a href="https://github.com/" style="color: aliceblue;"> Download now</a>
+    </div>
+</section>
+<hr>
+ <!--NEB 12 GPA checker-->
+ <section>
+ <div class="container">
+    <h2 style="color: #343a40;">Multi-Subject GPA Calculator</h2>
+    <label for="english">English:</label>
+    <input type="number" id="english" placeholder="Enter marks for English">
+    <label for="nepali">Nepali:</label>
+    <input type="number" id="nepali" placeholder="Enter marks for Nepali">
+    <label for="socialMath">Social/Math:</label>
+    <input type="number" id="socialMath" placeholder="Enter marks for Social/Math">
+    <label for="accPhysics">Accounting/Physics:</label>
+    <input type="number" id="accPhysics" placeholder="Enter marks for Accounting/Physics">
+    <label for="ecoChem">Economic/Chemistry:</label>
+    <input type="number" id="ecoChem" placeholder="Enter marks for Economic/Chemistry">
+    <label for="compBio">Computer/Biology:</label>
+    <input type="number" id="compBio" placeholder="Enter marks for Computer/Biology">
+    <button onclick="calculateGPA()">Calculate GPA</button>
+    <p id="result"></p>
+  </div>
+  </section>
+
+  
+  
+  
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="containercont">
+            <h2 class="text-center">Connect with Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea class="form-control" id="message" name="message" rows="2" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" onclick="nimesh()">Submit</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                   <!-- Add !!-->
                 </div>
             </div>
         </div>
-    </section><br>
-    .....
-    <!-- Photo Gallery Section -->
-<section id=" Basic Web-designing Software">
-    <div class="container">
-        <h2 class="text-center">Basic Web-designing Software</h2><br>
-        <div class="row">
-            <div class="col-lg-4">
-                <img src="photo1.jpg" class="img-fluid mb-4" alt="Photo 1">
-                <br>
-                &emsp; &emsp; &emsp;  <input type="button" value="Read more" onclick="html()">
-            </div>
-            <div class="col-lg-4">
-                <img src="photo2.jpg" class="img-fluid mb-4" alt="Photo 2">
-                <br>
-               &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <input type="button" value="Read more" onclick="css()">
-            </div>
-            <div class="col-lg-4">
-            <img src="photo3.jpg" class="img-fluid mb-4" alt="Photo 3">
-            <br><br>
-            &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<input type="button" value="Read more" onclick="javascript()">
-            </div>
-            <!-- Add more photo columns as needed -->
-        </div>
-    </div>
-</section>
-   <!-- Blogs detail -->
-   <section id="blogs">
-    <div class="container">
-        <h2 class="text-center"> NEB important Questions</h2><br>
-        <b style="text-size-adjust: 30px;">Solutions : </b> <a href="https://jbstechinfo.com/?p=841" style="font-size: 20px;"> Find here </a>
-        <a href="file:///C:/Users/nimes/Downloads/NEB%20class%2012%20Computer%20All%20important%20C%20programming%20with%20solution.pdf" download>
-            <button class="highlight">Download</button>
-            </a><br><br>
-            <i> C programming Problems :</i> <a href="index2.html"> Find here</a>
-            
-    </div>
-   </section>
-
-    <!-- Skills Section -->
-<section id="skills">
-    <div class="container">
-        <h2 class="text-center">Skills</h2>
-        <div class="row">
-            <div class="col-lg-6">
-                <h3>Technical Skills</h3>
-                <ul>
-                    <li> Basic HTML, CSS, JavaScript</li>
-                    <li> Basic Bootstrap, jQuery</li>
-                    
-                    <!-- Add more technical skills as needed -->
-                </ul>
-            </div>
-            <div class="col-lg-6">
-                <h3>Soft Skills</h3>
-                <ul>
-                    <li>Problem Solving</li>
-                    <li>Communication</li>
-                    <li>Team Collaboration</li>
-                    <!-- Add more soft skills as needed -->
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
- <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            
-            <!-- Add a contact form or your contact information here -->
-            <!-- Contact Section -->
-<section id="contact">
-    <div class="container">
-        <h2>Contact Me</h2>
-        <div class="row">
-            <div class="col-lg-6">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            <div class="col-lg-6">
-                <!-- Add additional contact information or a map if needed -->
-                <p><b>Feel free to reach out to me via the contact form. I'll get back to you as soon as possible!</b></p>
-            </div>
-        </div>
-    </div>
-</section>
-        </div>
     </section>
+
    
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Add your custom scripts here -->
-    <script src="script1.js"></script>
-    <script>
-        function html(){
-            window.location.href = "https://en.wikipedia.org/wiki/HTML"; 
-        }
-        function css(){
-            window.location.href = "https://en.wikipedia.org/wiki/CSS";
-        }
-        function javascript(){
-            window.location.href ="https://en.wikipedia.org/wiki/CSS";
-        }
-    </script>
-     <footer class="bg-dark text-white text-center py-3">
-        &copy; 2024 Nimesh Shrestha. All rights reserved.
-    </footer>
 </body>
+<script>
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var message = document.getElementById("message").value;
+
+        var errorMessage = "";
+
+        if (name.trim() == "") {
+            errorMessage += "Name is required.<br>";
+        }
+
+        if (email.trim() == "") {
+            errorMessage += "Email is required.<br>";
+        } else if (!isValidEmail(email)) {
+            errorMessage += "Invalid email format.<br>";
+        }
+
+        if (message.trim() == "") {
+            errorMessage += "Message is required.<br>";
+        }
+
+        if (errorMessage !== "") {
+            document.getElementById("error-message").innerHTML = errorMessage;
+            return false;
+        }
+
+        // Form submission logic goes here (e.g., AJAX request)
+
+        return true;
+    }
+
+    function isValidEmail(email) {
+        // Basic email validation regex
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    
+    }
+    var existingMessage = "Thank you for contacting us! We will get back to you soon.";
+
+    // Function to display existing message
+    function displayExistingMessage() {
+        document.getElementById("existing-message").innerHTML = existingMessage;
+    }
+
+    // Call the function to display the existing message when the page loads
+    window.onload = displayExistingMessage;
+</script>
+<script>
+    function calculateGPA() {
+      const englishMarks = parseFloat(document.getElementById('english').value);
+      const nepaliMarks = parseFloat(document.getElementById('nepali').value);
+      const socialMathMarks = parseFloat(document.getElementById('socialMath').value);
+      const accPhysicsMarks = parseFloat(document.getElementById('accPhysics').value);
+      const ecoChemMarks = parseFloat(document.getElementById('ecoChem').value);
+      const compBioMarks = parseFloat(document.getElementById('compBio').value);
+
+      const totalSubjects = 6; // Total number of subjects
+
+      const totalMarks = englishMarks + nepaliMarks + socialMathMarks + accPhysicsMarks + ecoChemMarks + compBioMarks;
+
+      const averageMarks = totalMarks / totalSubjects;
+
+      let gpa = '';
+      let color = '';
+
+      if (averageMarks >= 90) {
+        gpa = 'A+';
+      } else if (averageMarks >= 80 && averageMarks < 90) {
+        gpa = 'A';
+      } else if (averageMarks >= 70 && averageMarks < 80) {
+        gpa = 'B+';
+      } else if (averageMarks >= 60 && averageMarks < 70) {
+        gpa = 'B';
+      } else if (averageMarks >= 50 && averageMarks < 60) {
+        gpa = 'C+';
+      } else if (averageMarks >= 40 && averageMarks < 50) {
+        gpa = 'C';
+      } else if (averageMarks >= 35 && averageMarks < 40) {
+        gpa = 'D';
+      } else {
+        gpa = 'NG';
+      }
+
+      // Set color to black for all cases
+      color = 'black';
+
+      document.getElementById('result').innerHTML = `<span style="color: ${color};">You scored ${gpa}</span>`;
+    }
+</script>
+
+ 
 </html>
