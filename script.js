@@ -82,7 +82,7 @@ $('menu').onclick = () => $('mobile').classList.toggle('hidden');
 $('yr').textContent = new Date().getFullYear();
 render();
 
-Code to Change: 
+
 // ==========================================
 // BACKGROUND MUSIC PLAYER
 // ==========================================
