@@ -81,3 +81,77 @@ $('theme').onclick = () => { const d = document.documentElement.classList.toggle
 $('menu').onclick = () => $('mobile').classList.toggle('hidden');
 $('yr').textContent = new Date().getFullYear();
 render();
+
+const musicTracks = [
+  { title: 'Warriyo - Mortals', src: 'audio/Warriyo - Mortals (feat. Laura Brehm) Future Trap NCS - Copyright Free Music.mp3' },
+  { title: 'Spektrum - Keep You', src: 'audio/spektrum-sara-skinner-keep-you-trap-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3' },
+  { title: 'Lemon Fight - Stronger', src: 'audio/Lemon Fight - Stronger (feat. Jessica Reynoso) [Champion Remix] DnB NCS - Copyright Free Music.mp3' },
+  { title: 'Different Heaven - Safe and Sound', src: 'audio/different-heaven-safe-and-sound-house-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3' }
+];
+const music = new Audio();
+const musicToggle = $('music-toggle');
+const musicStatus = $('music-status');
+let currentTrack = 0;
+let musicStarting = false;
+music.preload = 'none';
+music.src = encodeURI(musicTracks[currentTrack].src);
+
+function updateMusicButton(playing) {
+  musicToggle.textContent = playing ? '❚❚ Pause' : '▶ Play';
+  musicToggle.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
+  musicToggle.setAttribute('aria-pressed', String(playing));
+}
+
+music.addEventListener('play', () => {
+  musicStatus.textContent = `Playing: ${musicTracks[currentTrack].title}`;
+  updateMusicButton(true);
+});
+music.addEventListener('pause', () => {
+  if (!music.ended) {
+    musicStatus.textContent = 'Music is paused';
+    updateMusicButton(false);
+  }
+});
+music.addEventListener('error', () => {
+  musicStatus.textContent = 'Could not load music. Check the audio files.';
+  updateMusicButton(false);
+});
+music.addEventListener('ended', () => {
+  currentTrack = (currentTrack + 1) % musicTracks.length;
+  music.src = encodeURI(musicTracks[currentTrack].src);
+  startMusic();
+});
+
+function startMusic() {
+  if (!music.paused || musicStarting) return;
+  musicStarting = true;
+  music.play().then(() => {
+    musicStarting = false;
+  }).catch((error) => {
+    musicStarting = false;
+    if (error.name === 'NotAllowedError') {
+      musicStatus.textContent = 'Tap or press any key to start music';
+    } else {
+      musicStatus.textContent = 'Could not play music. Check the audio files.';
+    }
+    updateMusicButton(false);
+  });
+}
+
+function startMusicOnFirstInteraction() {
+  document.removeEventListener('pointerdown', startMusicOnFirstInteraction);
+  document.removeEventListener('keydown', startMusicOnFirstInteraction);
+  startMusic();
+}
+
+document.addEventListener('pointerdown', startMusicOnFirstInteraction);
+document.addEventListener('keydown', startMusicOnFirstInteraction);
+startMusic();
+
+musicToggle.addEventListener('click', () => {
+  if (music.paused) {
+    startMusic();
+  } else {
+    music.pause();
+  }
+});
