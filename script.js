@@ -88,13 +88,13 @@ Code to Change:
 // ==========================================
 
 const musicTracks = [
-    "audio/different-heaven-safe-and-sound-house-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3",
+    "different-heaven-safe-and-sound-house-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3",
 
-    "audio/Lemon Fight - Stronger (feat. Jessica Reynoso) [Champion Remix] DnB NCS - Copyright Free Music.mp3",
+    "Lemon Fight - Stronger (feat. Jessica Reynoso) [Champion Remix] DnB NCS - Copyright Free Music.mp3",
 
-    "audio/spektrum-sara-skinner-keep-you-trap-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3",
+    "spektrum-sara-skinner-keep-you-trap-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3",
 
-    "audio/Warriyo - Mortals (feat. Laura Brehm) Future Trap NCS - Copyright Free Music.mp3"
+    "Warriyo - Mortals (feat. Laura Brehm) Future Trap NCS - Copyright Free Music.mp3"
 ];
 
 const musicToggle = document.getElementById("music-toggle");
