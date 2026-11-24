@@ -1,152 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeWithMe - Maintenance</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
-  color: white;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  text-align: center;
-  max-width: 500px;
-  padding: 20px;
-}
-
-.icon {
-  font-size: 60px;
-  margin-bottom: 20px;
-  animation: float 2s ease-in-out infinite;
-}
-
-h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-h2 {
-  color: #a855f7;
-  margin-bottom: 20px;
-}
-
-p {
-  color: #cccccc;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.small {
-  font-size: 14px;
-  color: #888;
-}
-
-#countdown {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.contact {
-  font-size: 13px;
-  color: #777;
-  margin-top: 20px;
-}
-
-/* Loader */
-.loader {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #444;
-  border-top: 4px solid #a855f7;
-  border-radius: 50%;
-  margin: 20px auto;
-  animation: spin 1s linear infinite;
-}
-
-/* Animations */
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudyShelf — Free BIM Notes &amp; Model Sets</title>
+<link rel="icon" type="image/x-icon" href="/images/photoooo.png">
+<meta name="description" content="Free reference notes and model question sets for BIM students, semester by semester. No registration required.">
+<meta property="og:title" content="StudyShelf — Free BIM Notes & Model Sets">
+<script>if(localStorage.theme==='dark'||(!localStorage.theme&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')</script>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:{DEFAULT:'#4f46e5',soft:'#a78bfa'}}}}}</script>
 </head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 antialiased">
+<header class="sticky top-0 z-30 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur">
+  <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between" aria-label="Main">
+    <a href="#" class="font-bold text-lg text-brand">📚 Nimesh Shrestha</a>
+    <div class="hidden md:flex gap-6 text-sm"><a href="#">Home</a><a href="#library">Subjects</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+    <div class="flex gap-2">
+      <button id="theme" class="rounded-lg border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm" aria-label="Toggle dark mode">🌓</button>
+      <button id="menu" class="md:hidden rounded-lg border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+  <div id="mobile" class="hidden md:hidden px-4 pb-3 space-y-2 text-sm"><a class="block" href="#">Home</a><a class="block" href="#library">Subjects</a><a class="block" href="#about">About</a><a class="block" href="#contact">Contact</a></div>
+</header>
 
-<body>
-  <div class="container">
-
-    <!-- Icon -->
-    <div class="icon">🛠️</div>
-
-    <!-- Title -->
-    <h1>CodeWithMe</h1>
-
-    <h2>We’ll Be Back Soon</h2>
-
-    <!-- Message -->
-    <p>
-      We are currently performing maintenance to improve your learning experience.
-      New features and improvements are on the way.
-    </p>
-
-    <!-- Loader -->
-    <div class="loader"></div>
-
-    <!-- Countdown -->
-    <p class="small">Time remaining:</p>
-    <div id="countdown">Loading...</div>
-
-    <!-- Contact -->
-    <p class="contact">
-      Need help? support@codewithme.com
-    </p>
-
+<style>
+@keyframes floatY{from{transform:translateY(-12px)}to{transform:translateY(12px)}}
+.float{animation:floatY 6s ease-in-out infinite alternate}
+.float.d1{animation-duration:7.5s;animation-delay:-2s}.float.d2{animation-duration:8.5s;animation-delay:-4s}.float.d3{animation-duration:6.5s;animation-delay:-1s}
+@media (prefers-reduced-motion:reduce){.float{animation:none}}
+</style>
+<section class="relative overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-600 to-violet-500 text-white">
+  <div class="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
+  <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center relative">
+    <div>
+      <span class="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-medium">सिकौं, बुझौं, अघि बढौं।</span>
+      <h1 class="mt-4 text-4xl md:text-5xl font-extrabold leading-tight">Free study resources for every BIM student.</h1>
+      <p class="mt-4 text-indigo-100 max-w-lg">Reference notes and model question sets, organised semester by semester. Open, read, download. No login, ever.</p>
+      <form id="searchForm" class="mt-7 max-w-lg flex gap-2" role="search">
+        <label for="q" class="sr-only">Search subjects</label>
+        <input id="q" maxlength="60" autocomplete="off" placeholder="Search subjects (e.g. Java, Accounting)…" class="flex-1 rounded-xl px-4 py-3 text-slate-800">
+        <button class="rounded-xl bg-slate-900 px-5 font-medium">Search</button>
+      </form>
+      <div class="mt-5 flex flex-wrap gap-3 text-sm">
+        <a href="#library" class="rounded-xl bg-white text-indigo-700 px-5 py-2.5 font-medium">Explore Resources</a>
+        <a href="#about" class="rounded-xl border border-white/60 px-5 py-2.5">Learn more</a>
+      </div>
+      <dl class="mt-8 flex gap-8 text-sm">
+        <div><dt class="text-indigo-200">Semesters live</dt><dd id="stat-sems" class="text-2xl font-bold">–</dd></div>
+        <div><dt class="text-indigo-200">Subjects</dt><dd id="stat-subjects" class="text-2xl font-bold">–</dd></div>
+        <div><dt class="text-indigo-200">Cost</dt><dd class="text-2xl font-bold">Free</dd></div>
+      </dl>
+    </div>
+    <div class="relative h-72 md:h-[26rem]" aria-hidden="true">
+      <div class="float absolute left-1/2 top-4 -translate-x-1/2 w-52 rounded-2xl bg-white p-4 text-slate-800 shadow-2xl">
+        <svg viewBox="0 0 120 70" class="w-full"><rect width="120" height="70" rx="8" fill="#eef2ff"/><rect x="12" y="12" width="60" height="8" rx="4" fill="#4f46e5"/><rect x="12" y="28" width="96" height="5" rx="2.5" fill="#c7d2fe"/><rect x="12" y="38" width="88" height="5" rx="2.5" fill="#c7d2fe"/><rect x="12" y="48" width="70" height="5" rx="2.5" fill="#c7d2fe"/></svg>
+        <div class="mt-2 text-sm font-semibold">Reference Notes.pdf</div><div class="text-xs text-slate-500">Semester 3 · Web Technology-I</div>
+      </div>
+      <div class="float d1 absolute right-0 top-36 md:top-44 w-44 rounded-2xl bg-slate-900/90 p-4 shadow-2xl ring-1 ring-white/20">
+        <div class="flex gap-1.5"><i class="h-2 w-2 rounded-full bg-rose-400"></i><i class="h-2 w-2 rounded-full bg-amber-300"></i><i class="h-2 w-2 rounded-full bg-emerald-400"></i></div>
+        <pre class="mt-3 text-[11px] leading-4 text-indigo-200 font-mono">int main() {
+  printf("Hi!");
+}</pre>
+      </div>
+      <div class="float d2 absolute left-0 bottom-4 md:bottom-10 rounded-2xl bg-white/95 text-slate-800 px-4 py-3 shadow-2xl flex items-center gap-3">
+        <svg viewBox="0 0 48 48" class="h-10 w-10"><polygon points="24,8 46,19 24,30 2,19" fill="#4f46e5"/><path d="M10 25v10c0 3 7 7 14 7s14-4 14-7V25l-14 7z" fill="#818cf8"/><rect x="42" y="19" width="3" height="16" fill="#a78bfa"/></svg>
+        <div><div class="text-sm font-semibold">Model Question Sets</div><div class="text-xs text-slate-500">Exam-ready practice</div></div>
+      </div>
+      <div class="float d3 absolute right-6 bottom-0 rounded-full bg-emerald-400 text-emerald-950 text-xs font-semibold px-3 py-1.5 shadow-xl">✓ Opens in Google Drive</div>
+    </div>
   </div>
+</section>
 
-  <script>
-    // Set maintenance end time (change this if needed)
-let endTime = new Date();
-endTime.setMinutes(endTime.getMinutes() + 30); // 30 min countdown
+<main id="library" class="max-w-6xl mx-auto px-4 py-14">
+  <h2 class="text-2xl font-bold">BIM — Subjects by Semester</h2>
+  <div id="sems" class="mt-5 flex flex-wrap gap-2" role="tablist" aria-label="Semester filter"></div>
+  <div class="mt-5 flex items-center gap-4 text-sm text-slate-500">
+    <span id="count" aria-live="polite"></span>
+    <button id="clear" class="underline hidden">Clear all filters</button>
+  </div>
+  <div id="grid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  <p id="empty" class="hidden text-center text-slate-500 py-16">No subjects match your search. Try a shorter keyword or choose “All”.</p>
+</main>
 
-function updateCountdown() {
-  let now = new Date().getTime();
-  let distance = endTime - now;
-
-  if (distance <= 0) {
-    document.getElementById("countdown").innerHTML = "We're back online!";
-    return;
-  }
-
-  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("countdown").innerHTML =
-    minutes + "m " + seconds + "s";
-}
-
-// update every second
-setInterval(updateCountdown, 1000);
-updateCountdown();
-  </script>
-  
-</body>
-</html>
+<section id="about" class="max-w-3xl mx-auto px-4 pb-14 text-center">
+  <h2 class="text-2xl font-bold">About</h2>
+  <p class="mt-3 text-slate-600 dark:text-slate-400">Knowledge should be accessible to everyone. These notes and model sets are shared to help junior BIM students prepare with confidence. Every link opens directly in Google Drive — no account on this site needed.</p>
+</section>
+<section id="contact" class="max-w-3xl mx-auto px-4 pb-14 text-center">
+  <h2 class="text-2xl font-bold">Let's Connect</h2>
+  <p class="mt-3 text-slate-600 dark:text-slate-400">Have a question or suggestion? Reach out to me directly.</p>
+  <div class="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+    <a href="https://www.instagram.com/crestha.nimeshhhh/" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 px-5 py-3 font-medium text-white hover:opacity-90">Instagram · @crestha.nimeshhhh</a>
+    <a href="https://wa.me/9779702064138" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-emerald-600 px-5 py-3 font-medium text-white hover:bg-emerald-700">WhatsApp Me</a>
+  </div>
+</section>
+<footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-sm text-slate-500">© <span id="yr"></span> StudyShelf · Free for every student.</footer>
+<script src="script.js"></script>
+<script>
+document.getElementById('stat-subjects').textContent=Object.values(SEMESTERS).reduce((n,l)=>n+l.length,0);
+document.getElementById('stat-sems').textContent=Object.values(SEMESTERS).filter(l=>l.length).length;
+</script>
+</body></html>
