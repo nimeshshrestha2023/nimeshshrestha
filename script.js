@@ -1,3 +1,4 @@
+Original JS Code: 
 'use strict';
 /* ---------- DATA: paste your Google Drive share links in notes / model ----------
    Leave '' for "coming soon". Links must start with https://drive.google.com/ or https://docs.google.com/ */
@@ -82,113 +83,76 @@ $('menu').onclick = () => $('mobile').classList.toggle('hidden');
 $('yr').textContent = new Date().getFullYear();
 render();
 
-
-// ==========================================
-// BACKGROUND MUSIC PLAYER
-// ==========================================
-
 const musicTracks = [
-    "different-heaven-safe-and-sound-house-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3",
-
-    "Lemon Fight - Stronger (feat. Jessica Reynoso) [Champion Remix] DnB NCS - Copyright Free Music.mp3",
-
-    "spektrum-sara-skinner-keep-you-trap-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3",
-
-    "Warriyo - Mortals (feat. Laura Brehm) Future Trap NCS - Copyright Free Music.mp3"
+  { title: 'Warriyo - Mortals', src: 'audio/Warriyo - Mortals (feat. Laura Brehm) Future Trap NCS - Copyright Free Music.mp3' },
+  { title: 'Spektrum - Keep You', src: 'audio/spektrum-sara-skinner-keep-you-trap-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3' },
+  { title: 'Lemon Fight - Stronger', src: 'audio/Lemon Fight - Stronger (feat. Jessica Reynoso) [Champion Remix] DnB NCS - Copyright Free Music.mp3' },
+  { title: 'Different Heaven - Safe and Sound', src: 'audio/different-heaven-safe-and-sound-house-ncs-copyright-free-music-128-ytshorts.savetube.me.mp3' }
 ];
-
-const musicToggle = document.getElementById("music-toggle");
-const musicStatus = document.getElementById("music-status");
-
+const music = new Audio();
+const musicToggle = $('music-toggle');
+const musicStatus = $('music-status');
 let currentTrack = 0;
-let isMusicPlaying = false;
+let musicStarting = false;
+music.preload = 'none';
+music.src = encodeURI(musicTracks[currentTrack].src);
 
-const backgroundMusic = new Audio();
-
-backgroundMusic.volume = 0.15;
-backgroundMusic.loop = false;
-
-// Load the selected track
-function loadTrack(index) {
-    currentTrack = index;
-
-    backgroundMusic.src = encodeURI(musicTracks[currentTrack]);
-    backgroundMusic.load();
+function updateMusicButton(playing) {
+  musicToggle.textContent = playing ? '❚❚ Pause' : '▶ Play';
+  musicToggle.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
+  musicToggle.setAttribute('aria-pressed', String(playing));
 }
 
-// Start music
-async function startMusic() {
-    try {
-        if (!backgroundMusic.src) {
-            loadTrack(currentTrack);
-        }
-
-        await backgroundMusic.play();
-
-        isMusicPlaying = true;
-
-        if (musicToggle) {
-            musicToggle.textContent = "❚❚ Pause";
-        }
-
-        if (musicStatus) {
-            musicStatus.textContent = "Music is playing";
-        }
-
-    } catch (error) {
-        console.error("Music playback error:", error);
-
-        isMusicPlaying = false;
-
-        if (musicToggle) {
-            musicToggle.textContent = "▶ Play";
-        }
-
-        if (musicStatus) {
-            musicStatus.textContent = "Unable to play music";
-        }
-    }
-}
-
-// Pause music
-function pauseMusic() {
-    backgroundMusic.pause();
-
-    isMusicPlaying = false;
-
-    if (musicToggle) {
-        musicToggle.textContent = "▶ Play";
-    }
-
-    if (musicStatus) {
-        musicStatus.textContent = "Music is off";
-    }
-}
-
-// Play next track automatically
-backgroundMusic.addEventListener("ended", () => {
-    currentTrack++;
-
-    // Restart playlist after the last song
-    if (currentTrack >= musicTracks.length) {
-        currentTrack = 0;
-    }
-
-    loadTrack(currentTrack);
-    startMusic();
+music.addEventListener('play', () => {
+  musicStatus.textContent = `Playing: ${musicTracks[currentTrack].title}`;
+  updateMusicButton(true);
+});
+music.addEventListener('pause', () => {
+  if (!music.ended) {
+    musicStatus.textContent = 'Music is paused';
+    updateMusicButton(false);
+  }
+});
+music.addEventListener('error', () => {
+  musicStatus.textContent = 'Could not load music. Check the audio files.';
+  updateMusicButton(false);
+});
+music.addEventListener('ended', () => {
+  currentTrack = (currentTrack + 1) % musicTracks.length;
+  music.src = encodeURI(musicTracks[currentTrack].src);
+  startMusic();
 });
 
-// Music toggle button
-if (musicToggle) {
-    musicToggle.addEventListener("click", () => {
-        if (isMusicPlaying) {
-            pauseMusic();
-        } else {
-            startMusic();
-        }
-    });
+function startMusic() {
+  if (!music.paused || musicStarting) return;
+  musicStarting = true;
+  music.play().then(() => {
+    musicStarting = false;
+  }).catch((error) => {
+    musicStarting = false;
+    if (error.name === 'NotAllowedError') {
+      musicStatus.textContent = 'Tap or press any key to start music';
+    } else {
+      musicStatus.textContent = 'Could not play music. Check the audio files.';
+    }
+    updateMusicButton(false);
+  });
 }
 
-// Load the first track when the page opens
-loadTrack(0);
+function startMusicOnFirstInteraction() {
+  document.removeEventListener('pointerdown', startMusicOnFirstInteraction);
+  document.removeEventListener('keydown', startMusicOnFirstInteraction);
+  startMusic();
+}
 
+document.addEventListener('pointerdown', startMusicOnFirstInteraction);
+document.addEventListener('keydown', startMusicOnFirstInteraction);
+startMusic();
+
+musicToggle.addEventListener('click', () => {
+  if (music.paused) {
+    startMusic();
+  } else {
+    music.pause();
+  }
+});
